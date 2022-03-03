@@ -1,0 +1,92 @@
+{
+  "name": "@vidiemme/adonis-adminjs",
+  "version": "1.0.0",
+  "description": "Adonis AdminJS",
+  "main": "build/providers/AdminjsProvider.js",
+  "files": [
+    "build/adonis-typings",
+    "build/providers",
+    "build/src",
+    "build/instructions.js",
+    "build/templates"
+  ],
+  "typings": "./build/adonis-typings/index.d.ts",
+  "scripts": {
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "pretest": "npm run lint",
+    "lint": "eslint . --ext=.ts",
+    "clean": "rm -rf build",
+    "compile": "npm run lint && npm run clean && node scripts/build.js && npm run copyfiles",
+    "copyfiles": "copyfiles \"templates/**/*.txt\" build",
+    "build": "npm run compile",
+    "version": "npm run build",
+    "format": "prettier --write .",
+    "test": "node japaFile.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.vidiemme.it:Vidiemme/practice/node/adonis-packages/adonis-admin-bro.git"
+  },
+  "author": "Vidiemme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://git.vidiemme.it/Vidiemme/practice/node/adonis-packages/adonis-admin-bro/-/issues"
+  },
+  "homepage": "https://git.vidiemme.it/Vidiemme/practice/node/adonis-packages/adonis-admin-bro",
+  "dependencies": {
+    "@adonisjs/assembler": "^5.4.1",
+    "path-to-regexp": "^6.2.0"
+  },
+  "peerDependencies": {
+    "@adonisjs/auth": "^8.0.11",
+    "@adonisjs/core": "^5.5.0",
+    "@adonisjs/session": "^6.1.4",
+    "adminjs": "^5.7.3"
+  },
+  "devDependencies": {
+    "@adonisjs/ace": "^11.0.4",
+    "@adonisjs/application": "^5.1.7",
+    "@adonisjs/auth": "^8.0.11",
+    "@adonisjs/config": "^3.0.5",
+    "@adonisjs/core": "^5.3.4",
+    "@adonisjs/events": "^7.1.2",
+    "@adonisjs/fold": "^8.1.5",
+    "@adonisjs/logger": "^4.1.1",
+    "@adonisjs/mrm-preset": "^4.1.2",
+    "@adonisjs/profiler": "^6.0.6",
+    "@adonisjs/session": "^6.1.4",
+    "@adonisjs/sink": "^5.2.1",
+    "@poppinss/dev-utils": "^1.1.5",
+    "@types/node": "^16.9.4",
+    "adminjs": "^5.7.3",
+    "copyfiles": "^2.4.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-adonis": "^1.3.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "japa": "^3.1.1",
+    "mrm": "^3.0.10",
+    "prettier": "^2.5.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.4.3"
+  },
+  "publishConfig": {
+    "tag": "latest",
+    "access": "public"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "adminjs",
+    "adonis-adminjs"
+  ],
+  "adonisjs": {
+    "instructions": "./build/instructions.js",
+    "types": "@vidiemme/adonis-adminjs",
+    "providers": [
+      "@vidiemme/adonis-adminjs"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+import {AdminJS, AdminjsAdonisInstance} from '@ioc:Vidiemme/Adminjs/Adonis'
+
+AdminjsAdonisInstance.buildRouter(new AdminJS())
