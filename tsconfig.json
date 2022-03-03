@@ -5,12 +5,11 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "useDefineForClassFields": true,
-    "types": ["@adonisjs/auth", "@adonisjs/session", "@adonisjs/lucid"]
+    "types": ["@adonisjs/auth", "@adonisjs/session"]
   },
   "files": [
     "./node_modules/@adonisjs/auth/build/adonis-typings/index.d.ts",
     "./node_modules/@adonisjs/core/build/adonis-typings/index.d.ts",
-    "./node_modules/@adonisjs/session/build/adonis-typings/index.d.ts",
-    "./node_modules/@adonisjs/lucid/build/adonis-typings/index.d.ts"
+    "./node_modules/@adonisjs/session/build/adonis-typings/index.d.ts"
   ]
 }
