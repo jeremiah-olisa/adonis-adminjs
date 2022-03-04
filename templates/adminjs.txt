@@ -1,3 +1,5 @@
-import {AdminJS, AdminjsAdonisInstance} from '@ioc:Vidiemme/Adminjs/Adonis'
+import AdminJS from 'adminjs'
+
+import { AdminjsAdonisInstance } from '@ioc:Vidiemme/Adminjs/Adonis'
 
 AdminjsAdonisInstance.buildRouter(new AdminJS())
