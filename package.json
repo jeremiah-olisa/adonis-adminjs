@@ -2,22 +2,22 @@
   "name": "@vidiemme/adonis-adminjs",
   "version": "1.0.0",
   "description": "Adonis AdminJS",
-  "main": "build/providers/AdminjsProvider.js",
+  "main": "providers/AdminjsProvider.js",
   "files": [
-    "build/adonis-typings",
-    "build/providers",
-    "build/src",
-    "build/instructions.js",
-    "build/templates"
+    "adonis-typings",
+    "providers",
+    "src",
+    "instructions.js",
+    "templates"
   ],
-  "typings": "./build/adonis-typings/index.d.ts",
+  "typings": "./adonis-typings/index.d.ts",
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "pretest": "npm run lint",
     "lint": "eslint . --ext=.ts",
     "clean": "rm -rf build",
     "compile": "npm run lint && npm run clean && node scripts/build.js && npm run copyfiles",
-    "copyfiles": "copyfiles \"templates/**/*.txt\" build",
+    "copyfiles": "copyfiles \"templates/**/*.txt\" \"README.md\" build",
     "build": "npm run compile",
     "version": "npm run build",
     "format": "prettier --write .",
@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.vidiemme.it:Vidiemme/practice/node/adonis-packages/adonis-admin-bro.git"
+    "url": "git+ssh://git@github.com/vidiemme/adonis-adminjs.git"
   },
   "author": "Vidiemme",
   "license": "MIT",
   "bugs": {
-    "url": "https://git.vidiemme.it/Vidiemme/practice/node/adonis-packages/adonis-admin-bro/-/issues"
+    "url": "https://github.com/vidiemme/adonis-adminjs/-/issues"
   },
-  "homepage": "https://git.vidiemme.it/Vidiemme/practice/node/adonis-packages/adonis-admin-bro",
+  "homepage": "https://github.com/vidiemme/adonis-adminjs",
   "dependencies": {
     "@adonisjs/assembler": "^5.4.1",
     "path-to-regexp": "^6.2.0"
@@ -41,7 +41,7 @@
     "@adonisjs/auth": "^8.0.11",
     "@adonisjs/core": "^5.5.0",
     "@adonisjs/session": "^6.1.4",
-    "adminjs": "^5.7.3"
+    "adminjs": "^5.9.3"
   },
   "devDependencies": {
     "@adonisjs/ace": "^11.0.4",
@@ -58,7 +58,7 @@
     "@adonisjs/sink": "^5.2.1",
     "@poppinss/dev-utils": "^1.1.5",
     "@types/node": "^16.9.4",
-    "adminjs": "^5.7.3",
+    "adminjs": "^5.9.3",
     "copyfiles": "^2.4.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -79,11 +79,12 @@
     "test": "test"
   },
   "keywords": [
+    "adonisjs",
     "adminjs",
     "adonis-adminjs"
   ],
   "adonisjs": {
-    "instructions": "./build/instructions.js",
+    "instructions": "./instructions.js",
     "types": "@vidiemme/adonis-adminjs",
     "providers": [
       "@vidiemme/adonis-adminjs"
