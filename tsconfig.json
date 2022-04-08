@@ -4,8 +4,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
-    "useDefineForClassFields": true,
-    "types": ["@adonisjs/auth", "@adonisjs/session"]
+    "useDefineForClassFields": true
   },
   "files": [
     "./node_modules/@adonisjs/auth/build/adonis-typings/index.d.ts",
