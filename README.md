@@ -2,56 +2,71 @@
 
 [![npm-image]][npm-url] [![license-image]][license-url] [![typescript-image]][typescript-url]
 
-This addon adds the functionality to schedule jobs managed via databases.
+This is a NON-official AdminJS plugin that integrates it to the AdonisJS framework.
 
-## Introduction
+## AdminJS
 
-This package leverages Lucid for database job management, it can be used with all types of databases supported by
-Lucid (MySQL, SQLite, Postgresql, ...). \
-For some databases that support locking, the job lock function has been
-implemented so that, in case of multiple server instances, only one node takes over the job from the DB.
+AdminJS is an automatic admin interface which can be plugged into your application. You, as a developer, provide
+database models (like posts, comments, stores, products or whatever else your application uses), and AdminJS generates
+UI which allows you (or other trusted users) to manage content.
+
+Check out the example application with mongo and postgres models
+here: https://admin-bro-example-app-staging.herokuapp.com/admin/login
+
+Or visit AdminJS github page.
 
 ## Installation
 
-Add the following line to the `. npmrc` file \
-`@vidiemme:registry=https://git.vidiemme.it/api/v4/packages/npm/`
-
 Install the package with the command \
-`npm i @vidiemme/adonis-adminjs`
+`npm i adminjs @vidiemme/adonis-adminjs`
 
 Configure the package with the command \
 `node ace configure @vidiemme/adonis-adminjs`
 
-Perform migration \
-`node ace migration:run`
-
 ## Usage
 
-Make a job handler with the command `node ace make:job << job name >>`. \
-Then you must record the list of your jobs in the map inside the file `start/scheduler.ts`.
-
-The Job can interface with any resource on the server. \
-You can also pass metadata in Json format to the `handle` method.
+You can edit your AdminJs configuration via the `start/adminjs.ts` file:
 
 ```typescript
-public async handle(params) {
-  // your job here
-}
+import AdminJS from 'adminjs'
+
+import {AdminjsAdonisInstance} from '@ioc:Vidiemme/Adminjs/Adonis'
+
+const adminJs = new AdminJS({
+  databases: [],
+  rootPath: '/admin',
+})
+AdminjsAdonisInstance.buildRouter(adminjs)
 ```
 
-Jobs are managed directly in DB:
-- The `name` field must be aligned to the names entered in the JobMap.
-- the `data` field is optional and can contain a json of parameters to pass to the JobHandler
-- The `cron` field represents how often to run the job.
+Or you can use the AdminJS login screens (authentication is handled by Adonis)
 
-[npm-image]: https://img.shields.io/npm/v/adonis-lucid-soft-deletes?logo=npm&style=for-the-badge
+```typescript
+AdminjsAdonisInstance.buildAuthenticatedRouter(adminjs)
+```
 
-[npm-url]: https://www.npmjs.com/package/adonis-lucid-soft-deletes
+The `buildRouter` and `buildAuthenticatedRouter` methods return an Adonis Router, so you can then append middleware or
+manage groups just as you do with other routes.
 
-[license-image]: https://img.shields.io/npm/l/adonis-lucid-soft-deletes?style=for-the-badge&color=blueviolet
+```typescript
+Route.group(() => {
+  AdminjsAdonisInstance
+    .buildRouter(new AdminJS())
+    .middleware(SomeMiddleware)
 
-[license-url]: https://github.com/lookinlab/adonis-lucid-soft-deletes/blob/develop/LICENSE.md
+  ...
+})
+  .middleware(SomeGroupMiddleware)
+```
 
-[typescript-image]: https://img.shields.io/npm/types/adonis-lucid-soft-deletes?color=294E80&label=%20&logo=typescript&style=for-the-badge
+[npm-image]: https://img.shields.io/npm/v/@vidiemme/adonis-adminjs?logo=npm&style=for-the-badge
 
-[typescript-url]: https://github.com/lookinlab
+[npm-url]: https://www.npmjs.com/package/@vidiemme/adonis-adminjs
+
+[license-image]: https://img.shields.io/npm/l/@vidiemme/adonis-adminjs?style=for-the-badge&color=blueviolet
+
+[license-url]: https://github.com/vidiemme/adonis-adminjs/blob/main/LICENSE.md
+
+[typescript-image]: https://img.shields.io/npm/types/@vidiemme/adonis-adminjs?color=294E80&label=%20&logo=typescript&style=for-the-badge
+
+[typescript-url]: https://github.com/vidiemme

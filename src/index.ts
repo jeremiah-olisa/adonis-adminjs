@@ -6,8 +6,6 @@ import { RouteGroupContract, RouterContract } from '@ioc:Adonis/Core/Route'
 import { buildRouter } from './buildRouter'
 import { buildAuthenticatedRouter } from './buildAuthenticatedRouter'
 
-export const name = 'AdminJSAdonis'
-
 export class AdminjsAdonis {
   constructor(protected logger: LoggerContract, protected route: RouterContract) {}
 

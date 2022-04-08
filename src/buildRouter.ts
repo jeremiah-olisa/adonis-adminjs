@@ -28,7 +28,7 @@ export const buildRouter = (
       const adonisPath = convertToAdonisRoute(admin, route.path)
 
       const handler: RouteHandler = async ({ request, response, auth }: HttpContextContract) => {
-        const controller = new route.Controller({ admin }, auth.isAuthenticated)
+        const controller = new route.Controller({ admin }, auth.user)
         const params = request.params()
         const query = request.qs()
         const method = request.method().toLocaleLowerCase()
