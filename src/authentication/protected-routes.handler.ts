@@ -7,7 +7,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { convertToAdonisRoute } from '../convertRoutes'
 
 export const withProtectedRoutesHandler = (admin: AdminJS): RouteMiddlewareHandler => {
-  return async ({ request, response, session, auth }: HttpContextContract) => {
+  return async ({ request, response, session, auth }: HttpContextContract, next: () => void) => {
     let skip = false
 
     const { rootPath, loginPath, logoutPath } = admin.options
@@ -30,6 +30,8 @@ export const withProtectedRoutesHandler = (admin: AdminJS): RouteMiddlewareHandl
         return response.redirect(loginPath)
       }
     }
+
+    await next()
   }
 }
 
