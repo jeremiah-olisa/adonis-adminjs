@@ -59,6 +59,14 @@ Route.group(() => {
   .middleware(SomeGroupMiddleware)
 ```
 
+## CSRF
+In order to use the AdminJS data entry forms you need to disable the `csrf` control for its routes. \
+In the file `config/shield.ts` add the following code:
+
+```typescript
+exceptRoutes: ({ request }) => request.url().includes('/admin/'), 
+```
+
 [npm-image]: https://img.shields.io/npm/v/@vidiemme/adonis-adminjs?logo=npm&style=for-the-badge
 
 [npm-url]: https://www.npmjs.com/package/@vidiemme/adonis-adminjs
