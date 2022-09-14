@@ -41,7 +41,7 @@
     "@adonisjs/auth": "^8.0.11",
     "@adonisjs/core": "^5.5.0",
     "@adonisjs/session": "^6.1.4",
-    "adminjs": "^5.9.3"
+    "adminjs": "^6.2.3"
   },
   "devDependencies": {
     "@adonisjs/ace": "^11.0.4",
@@ -58,7 +58,7 @@
     "@adonisjs/sink": "^5.2.1",
     "@poppinss/dev-utils": "^1.1.5",
     "@types/node": "^16.9.4",
-    "adminjs": "^5.9.3",
+    "adminjs": "^6.2.3",
     "copyfiles": "^2.4.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
