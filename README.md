@@ -36,13 +36,13 @@ const adminJs = new AdminJS({
   databases: [],
   rootPath: '/admin',
 })
-AdminjsAdonisInstance.buildRouter(adminjs)
+AdminjsAdonisInstance.buildRouter(adminJs)
 ```
 
 Or you can use the AdminJS login screens (authentication is handled by Adonis)
 
 ```typescript
-AdminjsAdonisInstance.buildAuthenticatedRouter(adminjs)
+AdminjsAdonisInstance.buildAuthenticatedRouter(adminJs)
 ```
 
 The `buildRouter` and `buildAuthenticatedRouter` methods return an Adonis Router, so you can then append middleware or
